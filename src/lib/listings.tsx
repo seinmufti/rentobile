@@ -31,7 +31,9 @@ export type PhotoSource = string | number | ImageSource;
 
 export type NewListing = Omit<Listing, 'id' | 'createdAt'>;
 
-const STORAGE_KEY = 'bakre.listings.v1';
+const STORAGE_KEY = 'rentobile.listings.v1';
+/** Key used before the app was renamed from BaKre; read once as a fallback. */
+const LEGACY_STORAGE_KEY = 'bakre.listings.v1';
 const SEED_PREFIX = 'seed-';
 
 const day = 24 * 60 * 60 * 1000;
@@ -173,6 +175,7 @@ export function ListingsProvider({ children }: { children: React.ReactNode }) {
 
   React.useEffect(() => {
     AsyncStorage.getItem(STORAGE_KEY)
+      .then((raw) => raw ?? AsyncStorage.getItem(LEGACY_STORAGE_KEY))
       // Stored data only holds user listings; sample cars are always the current SEED.
       .then((raw) => {
         const saved = raw ? (JSON.parse(raw) as Listing[]).filter((l) => !isSeed(l)) : [];

@@ -43,7 +43,7 @@ export default function ListingsScreen() {
             <View className="flex-row items-center justify-between">
               <View>
                 <Text className="text-3xl font-extrabold tracking-tight">
-                  Ba<Text className="text-primary text-3xl font-extrabold tracking-tight">Kre</Text>
+                  Rent<Text className="text-primary text-3xl font-extrabold tracking-tight">obile</Text>
                 </Text>
                 <Text className="text-muted-foreground text-start text-sm">{t.appTagline}</Text>
               </View>

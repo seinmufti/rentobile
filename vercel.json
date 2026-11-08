@@ -3,12 +3,12 @@
   "buildCommand": "npx expo export -p web",
   "outputDirectory": "dist",
   "framework": null,
-  "redirects": [{ "source": "/", "destination": "/bakre", "permanent": false }],
+  "redirects": [{ "source": "/", "destination": "/rentobile", "permanent": false }],
   "rewrites": [
-    { "source": "/bakre/_expo/:path*", "destination": "/_expo/:path*" },
-    { "source": "/bakre/assets/:path*", "destination": "/assets/:path*" },
-    { "source": "/bakre/favicon.ico", "destination": "/favicon.ico" },
-    { "source": "/bakre", "destination": "/index.html" },
-    { "source": "/bakre/:path*", "destination": "/index.html" }
+    { "source": "/rentobile/_expo/:path*", "destination": "/_expo/:path*" },
+    { "source": "/rentobile/assets/:path*", "destination": "/assets/:path*" },
+    { "source": "/rentobile/favicon.ico", "destination": "/favicon.ico" },
+    { "source": "/rentobile", "destination": "/index.html" },
+    { "source": "/rentobile/:path*", "destination": "/index.html" }
   ]
 }

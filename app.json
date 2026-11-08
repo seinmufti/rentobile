@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "BaKre",
-    "slug": "bakre",
+    "name": "Rentobile",
+    "slug": "rentobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.bakre.app"
+      "bundleIdentifier": "com.rentobile.app"
     },
     "android": {
       "adaptiveIcon": {
@@ -18,7 +18,7 @@
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.bakre.app"
+      "package": "com.rentobile.app"
     },
     "web": {
       "favicon": "./assets/favicon.png",
@@ -34,14 +34,14 @@
       [
         "expo-image-picker",
         {
-          "photosPermission": "BaKre needs access to your photos so you can add pictures of your car."
+          "photosPermission": "Rentobile needs access to your photos so you can add pictures of your car."
         }
       ]
     ],
-    "scheme": "bakre",
+    "scheme": "rentobile",
     "experiments": {
       "typedRoutes": true,
-      "baseUrl": "/bakre"
+      "baseUrl": "/rentobile"
     }
   }
 }

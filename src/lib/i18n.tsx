@@ -168,7 +168,9 @@ const ckb: Dict = {
 };
 
 const DICTS: Record<Lang, Dict> = { en, ar, ckb };
-const STORAGE_KEY = 'bakre.lang';
+const STORAGE_KEY = 'rentobile.lang';
+/** Key used before the app was renamed from BaKre; read once as a fallback. */
+const LEGACY_STORAGE_KEY = 'bakre.lang';
 
 function deviceLang(): Lang {
   const code = getLocales()[0]?.languageCode ?? 'en';
@@ -193,6 +195,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 
   React.useEffect(() => {
     AsyncStorage.getItem(STORAGE_KEY)
+      .then((saved) => saved ?? AsyncStorage.getItem(LEGACY_STORAGE_KEY))
       .then((saved) => {
         if (saved === 'en' || saved === 'ar' || saved === 'ckb') setLangState(saved);
       })
