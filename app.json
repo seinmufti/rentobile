@@ -36,7 +36,8 @@
         {
           "photosPermission": "Rentobile needs access to your photos so you can add pictures of your car."
         }
-      ]
+      ],
+      "expo-sqlite"
     ],
     "scheme": "rentobile",
     "experiments": {

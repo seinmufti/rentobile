@@ -2,6 +2,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getLocales } from 'expo-localization';
 import * as React from 'react';
 
+import { arApp, ckbApp, enApp } from './strings-app';
+
 export type Lang = 'en' | 'ar' | 'ckb';
 
 export const LANGS: { code: Lang; label: string; short: string }[] = [
@@ -12,7 +14,7 @@ export const LANGS: { code: Lang; label: string; short: string }[] = [
 
 const RTL_LANGS: Lang[] = ['ar', 'ckb'];
 
-const en = {
+const enBase = {
   appTagline: 'Cars for rent near you',
   searchPlaceholder: 'Search brand, model or city',
   listingsCount: (n: number) => (n === 1 ? '1 car' : `${n} cars`),
@@ -63,9 +65,10 @@ const en = {
   justNow: 'New',
 };
 
+const en = { ...enBase, ...enApp };
 export type Dict = typeof en;
 
-const ar: Dict = {
+const arBase: typeof enBase = {
   appTagline: 'سيارات للإيجار بالقرب منك',
   searchPlaceholder: 'ابحث عن الماركة أو الموديل أو المدينة',
   listingsCount: (n) => (n === 1 ? 'سيارة واحدة' : `${n} سيارات`),
@@ -116,7 +119,7 @@ const ar: Dict = {
   justNow: 'جديد',
 };
 
-const ckb: Dict = {
+const ckbBase: typeof enBase = {
   appTagline: 'ئۆتۆمبێلی بەکرێ لە نزیک تۆ',
   searchPlaceholder: 'گەڕان بە مارکە، مۆدێل یان شار',
   listingsCount: (n) => `${n} ئۆتۆمبێل`,
@@ -167,6 +170,8 @@ const ckb: Dict = {
   justNow: 'نوێ',
 };
 
+const ar: Dict = { ...arBase, ...arApp };
+const ckb: Dict = { ...ckbBase, ...ckbApp };
 const DICTS: Record<Lang, Dict> = { en, ar, ckb };
 const STORAGE_KEY = 'rentobile.lang';
 /** Key used before the app was renamed from BaKre; read once as a fallback. */
