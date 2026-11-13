@@ -6,6 +6,7 @@ import { Text } from '@/components/ui/text';
 import { applyFilters, cityOf, DEFAULT_FILTERS, distinct, type Filters, type Sort } from '@/lib/filters';
 import { useI18n } from '@/lib/i18n';
 import { CURRENCIES, type Listing } from '@/lib/listings';
+import { MOBILE_COLUMN_WIDTH } from '@/lib/use-layout';
 import { cn } from '@/lib/utils';
 import { X } from 'lucide-react-native';
 import * as React from 'react';
@@ -55,7 +56,13 @@ function FilterBody({ onClose, value, onApply, listings, query }: Props) {
       <Pressable className="flex-1 bg-black/40" onPress={onClose} accessibilityLabel={t.close} />
       <View
         className="bg-background max-h-[85%] rounded-t-3xl"
-        style={{ paddingBottom: insets.bottom + 12, direction: isRTL ? 'rtl' : 'ltr' }}
+        style={{
+          paddingBottom: insets.bottom + 12,
+          direction: isRTL ? 'rtl' : 'ltr',
+          width: '100%',
+          maxWidth: MOBILE_COLUMN_WIDTH,
+          alignSelf: 'center',
+        }}
       >
         <View className="flex-row items-center justify-between px-5 pb-2 pt-4">
           <Text className="text-xl font-bold">{t.filters}</Text>

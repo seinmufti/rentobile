@@ -22,7 +22,16 @@ export default function SettingsScreen() {
   return (
     <View className="bg-background flex-1">
       <ScreenHeader back title={t.settings} hideSettings />
-      <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: insets.bottom + 32, gap: 24 }}>
+      <ScrollView
+        contentContainerStyle={{
+          padding: 16,
+          paddingBottom: insets.bottom + 32,
+          gap: 24,
+          width: '100%',
+          maxWidth: 560,
+          alignSelf: 'center',
+        }}
+      >
         <Section icon={Languages} title={t.language}>
           <Card className="gap-0 py-0">
             {LANGS.map((l, i) => (
